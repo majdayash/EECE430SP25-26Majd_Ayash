@@ -1,0 +1,26 @@
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Django / databases / media
+db.sqlite3
+media/
+staticfiles/
+
+# IDE
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+
+# Python packaging
+*.egg-info/
+dist/
+build/

@@ -1,0 +1,11 @@
+{% extends 'players/base.html' %}
+
+{% block content %}
+<h1>Delete Player</h1>
+<p>Are you sure you want to delete <strong>{{ player.name }}</strong>?</p>
+<form method="post">
+    {% csrf_token %}
+    <button class="btn-danger" type="submit">Yes, Delete</button>
+    <a class="btn-secondary" href="{% url 'player_list' %}">Cancel</a>
+</form>
+{% endblock %}

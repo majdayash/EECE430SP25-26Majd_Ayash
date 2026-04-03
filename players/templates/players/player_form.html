@@ -1,0 +1,11 @@
+{% extends 'players/base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-primary" type="submit">Save</button>
+    <a class="btn-secondary" href="{% url 'player_list' %}">Cancel</a>
+</form>
+{% endblock %}
