@@ -20,8 +20,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project code
 COPY . .
 
+# Add entrypoint
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 # Expose port the app runs on
 EXPOSE 8000
 
-# Run database migrations then start Gunicorn
-CMD python manage.py migrate --noinput && \\\n    gunicorn volleyball_manager.wsgi:application --bind 0.0.0.0:${PORT}
+# Run migrations then start Gunicorn (exec form handles signals cleanly)
+CMD ["/app/entrypoint.sh"]
